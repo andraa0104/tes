@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\gaji;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\gajiController;
 
 Route::get('/', function () {
     return view('components.dashboard', ['title' => 'Dashboard']);
@@ -26,3 +28,5 @@ Route::get('/formpenggajian', function () {
 Route::get('/formizin', function () {
     return view('components.form-izin', ['title' => 'Form Izin']);
 });
+
+Route::post('gaji', [gajiController::class, 'store'])->name('gaji.store');
